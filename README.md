@@ -1,12 +1,14 @@
 # ads-crawler
 
+[![Build Status](https://travis-ci.org/KamilLelonek/ads-crawler.svg?branch=master)](https://travis-ci.org/KamilLelonek/ads-crawler)
+
 Collecting `ads.txt` data from specified publishers.
 
 ## Authorized Digital Seller
 
 Authorized Digital Seller list is a simple, flexible and secure method that publishers and distributors can use to publicly declare the companies they authorize to sell their digital inventory.
 
-`ads.txt` gives publishers control over their inventory in the market, making it harder for bad actors to profit from selling counterfeit inventory across the ecosystem.
+[`ads.txt`](https://iabtechlab.com/~iabtec5/wp-content/uploads/2016/07/IABOpenRTBAds.txtSpecification_Version1_Final.pdf) gives publishers control over their inventory in the market, making it harder for bad actors to profit from selling counterfeit inventory across the ecosystem.
 
 ### Use cases
 
