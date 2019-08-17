@@ -1,0 +1,18 @@
+---
+default: &default
+  dialect: postgres
+  user: postgres
+  password: postgres
+  host: 127.0.0.1
+  pool: 5
+
+development:
+  <<: *default
+  database: crawler_development
+
+test:
+  <<: *default
+  database: crawler_test
+
+production:
+  url: {{envOr "DATABASE_URL" "postgres://postgres:postgres@127.0.0.1:5432/crawler_production?sslmode=disable"}}
