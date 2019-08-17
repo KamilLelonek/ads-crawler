@@ -33,6 +33,29 @@ Then, install all project dependencies by running:
 
     go get
 
+## Database
+
+### Installation
+
+We are using `PostgreSQL` database for the project but we are not limited to how can you use it on your local machine. You can either use a `Docker` container with `5432` port exposed or leverage a standalone [installation](https://www.postgresql.org/download/).
+
+### Setup
+
+For the database management, the following stack is used:
+
+- `soda` - a small [CLI toolbox](https://gobuffalo.io/en/docs/db/toolbox) to manage the database
+- `pop` - a [package](https://godoc.org/github.com/gobuffalo/pop) that makes it easy to do CRUD operations, run migrations, and build/execute queries
+- `fizz` - a common [DSL](https://github.com/gobuffalo/fizz) for describing the database changes
+
+To install all of these tools, you can just install dependencies as usual and do:
+
+    go install github.com/gobuffalo/pop/soda
+
+Once you have them installed, you may want to create and migrate your local database (make sure you have `$GOPATH/bin` in your system `$PATH`):
+
+    soda create
+    soda migrate
+
 ## Usage
 
 To start the server on you localhost, run:
