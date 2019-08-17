@@ -7,10 +7,10 @@ import (
 )
 
 func MountRoutes(group *gin.RouterGroup) {
-	group.GET("/publisher/:name", FetchPublisher)
+	group.GET("/publisher/:name", fetchPublisher)
 }
 
-func FetchPublisher(c *gin.Context) {
+func fetchPublisher(c *gin.Context) {
 	c.JSON(http.StatusOK, renderResult(c))
 }
 
