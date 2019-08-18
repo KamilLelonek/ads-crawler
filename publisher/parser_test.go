@@ -84,7 +84,7 @@ func TestNewList(t *testing.T) {
 		expected []Row
 	}{
 		{
-			list: " # CNN.com/ads.txt\n # \n # DOMESTIC\ngoogle.com, pub-7439281311086140, DIRECT, f08c47fec0942fa0 # banner, video, native",
+			list: " # CNN.com/ads.txt\n # \n\n\n # DOMESTIC\ngoogle.com, pub-7439281311086140, DIRECT, f08c47fec0942fa0 # banner, video, native",
 			expected: []Row{
 				{
 					Domain:       "google.com",

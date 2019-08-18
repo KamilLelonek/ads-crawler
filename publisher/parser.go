@@ -48,6 +48,10 @@ func removeComment(element string) string {
 	}
 }
 
+func isEmpty(line string) bool {
+	return line == "" || []rune(line)[0] == '#'
+}
+
 func buildRow(fields []string) Row {
 	var r Row
 
@@ -81,7 +85,7 @@ func NewList(reader io.Reader) ([]Row, error) {
 	for scanner.Scan() {
 		line := strings.TrimSpace(scanner.Text())
 
-		if []rune(line)[0] == '#' {
+		if isEmpty(line) {
 			continue
 		}
 
