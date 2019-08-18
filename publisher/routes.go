@@ -1,6 +1,7 @@
 package publisher
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -11,9 +12,13 @@ func MountRoutes(group *gin.RouterGroup) {
 }
 
 func fetchPublisher(c *gin.Context) {
-	c.JSON(http.StatusOK, renderResult(c))
-}
+	publisher := c.Param("name")
+	rows, err := FetchList(publisher)
 
-func renderResult(c *gin.Context) gin.H {
-	return gin.H{"publisher": c.Param("name")}
+	if err != nil {
+		log.Println(err)
+		c.JSON(http.StatusBadRequest, gin.H{"error": err})
+	} else {
+		c.JSON(http.StatusOK, gin.H{"publisher": rows})
+	}
 }
