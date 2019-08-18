@@ -1,7 +1,9 @@
 package publisher
 
 import (
+	"bufio"
 	"fmt"
+	"io"
 	"strings"
 )
 
@@ -69,4 +71,29 @@ func NewRow(row string) (Row, error) {
 	r := buildRow(fields)
 
 	return r, nil
+}
+
+func NewList(reader io.Reader) ([]Row, error) {
+	rows := make([]Row, 0)
+	scanner := bufio.NewScanner(reader)
+
+	for scanner.Scan() {
+		line := strings.TrimSpace(scanner.Text())
+
+		if []rune(line)[0] == '#' {
+			continue
+		}
+
+		row, err := NewRow(line)
+
+		if err != nil {
+			return nil, err
+		}
+		rows = append(rows, row)
+	}
+
+	if err := scanner.Err(); err != nil {
+		return nil, err
+	}
+	return rows, nil
 }
