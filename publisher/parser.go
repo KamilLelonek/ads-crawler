@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"log"
 	"strings"
 )
 
@@ -87,7 +88,8 @@ func NewList(reader io.Reader) ([]Row, error) {
 		row, err := NewRow(line)
 
 		if err != nil {
-			return nil, err
+			log.Println(err)
+			continue
 		}
 		rows = append(rows, row)
 	}
