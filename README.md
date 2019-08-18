@@ -62,7 +62,9 @@ To start the server on you localhost, run:
 
     go run main.go
 
-And visit http://localhost/v1/publisher/:name in your browser with a particular Publisher `name` from the list.
+And visit http://localhost:8080/v1/publisher/:name in your browser with a particular Publisher `name` from the list.
+
+You can modify `8080` by using `PORT` environmental variable.
 
 ## Testing
 
