@@ -53,6 +53,15 @@ func TestNewRow(t *testing.T) {
 				Authority:    "a",
 			},
 		},
+		{
+			row: " example.com, 1  ,Reseller,a # a, b, c",
+			expected: Row{
+				Domain:       "example.com",
+				AccountId:    "1",
+				Relationship: Reseller,
+				Authority:    "a",
+			},
+		},
 	}
 
 	for i, c := range cases {

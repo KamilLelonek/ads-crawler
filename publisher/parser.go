@@ -24,6 +24,7 @@ func relationship(r string) Relationship {
 }
 
 func normalize(row string) []string {
+	row = removeComment(row)
 	fields := strings.Split(row, ",")
 
 	for i := range fields {
@@ -52,7 +53,7 @@ func buildRow(fields []string) Row {
 	r.Relationship = relationship(fields[2])
 
 	if len(fields) > 3 {
-		r.Authority = removeComment(fields[3])
+		r.Authority = fields[3]
 	}
 
 	return r
