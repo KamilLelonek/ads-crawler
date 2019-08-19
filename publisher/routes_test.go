@@ -2,7 +2,6 @@ package publisher
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -22,7 +21,6 @@ func TestPublisherRoutes(t *testing.T) {
 
 	router := prepareRouter()
 	recorder := performRequest(router, http.MethodGet, "/v1/publisher/random")
-	fmt.Println(recorder.Body.String())
 	response, err := readJson(recorder)
 	status, exists := response["publisher"]
 	row := []Row{Row{
