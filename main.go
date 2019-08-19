@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	router := config.SetupRouter()
+	router := config.SetupRouter(publisher.MountRoutes)
 	db := config.SetupDB()
 
 	publisher.Migrate(db)
