@@ -9,8 +9,8 @@ const (
 type Relationship int
 
 type Row struct {
-	Domain       string
-	AccountId    string
-	Relationship Relationship
-	Authority    string
+	Domain       string       `json:"domain"`
+	AccountId    string       `json:"account_id"`
+	Relationship Relationship `json:"relationship"`
+	Authority    string       `json:"authority"`
 }
