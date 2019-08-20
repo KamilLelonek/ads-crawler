@@ -2,8 +2,6 @@ package publisher
 
 import (
 	"time"
-
-	"github.com/jinzhu/gorm"
 )
 
 type Model struct {
@@ -14,10 +12,6 @@ type Model struct {
 	Relationship string    `gorm:"not null;type:relationship" json:"relationship"`
 	Authority    string    `json:"authority"`
 	CreatedAt    time.Time `gorm:"not null" json:"created_at"`
-}
-
-func Migrate(db *gorm.DB) {
-	db.AutoMigrate(&Model{})
 }
 
 func (Model) TableName() string {
