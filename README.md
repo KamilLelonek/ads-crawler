@@ -60,7 +60,7 @@ Once you have them installed, you may want to create and migrate your local data
 
 To start the server on you localhost, run:
 
-    go run main.go
+    go run .
 
 And visit http://localhost:8080/v1/publisher/:name in your browser with a particular Publisher `name` from the list.
 
