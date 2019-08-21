@@ -1,16 +1,16 @@
 package main
 
 import (
-	"crawler/config"
 	"crawler/publisher"
 )
 
 func main() {
-	router := config.SetupRouter(publisher.MountRoutes)
-	db := config.SetupDB()
+	router, group := SetupRouter()
+	repo := &publisher.Repo{}
 
-	publisher.Migrate(db)
+	publisher.MountRoutes(group)
+	repo.Migrate()
+	defer repo.CloseDB()
 
-	defer db.Close()
 	router.Run()
 }
