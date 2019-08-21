@@ -3,6 +3,9 @@ package publisher
 import (
 	"database/sql/driver"
 	"time"
+
+	"github.com/gofrs/uuid"
+	"github.com/jinzhu/gorm"
 )
 
 func (r *Relationship) Scan(value interface{}) error {
@@ -26,4 +29,14 @@ type Model struct {
 
 func (Model) TableName() string {
 	return "publishers"
+}
+
+func (model *Model) BeforeCreate(scope *gorm.Scope) error {
+	uuid, err := uuid.NewV4()
+
+	if err != nil {
+		return err
+	}
+
+	return scope.SetColumn("ID", uuid.String())
 }
