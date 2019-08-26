@@ -9,7 +9,7 @@ import (
 )
 
 func (r *Relationship) Scan(value interface{}) error {
-	*r = Relationship(value.(int))
+	*r = Relationship(value.([]byte))
 	return nil
 }
 

@@ -1,12 +1,12 @@
 package publisher
 
-const (
-	Direct Relationship = iota
-	Reseller
-	Other
-)
+type Relationship string
 
-type Relationship int
+const (
+	Direct   Relationship = "DIRECT"
+	Reseller Relationship = "RESELLER"
+	Other    Relationship = "OTHER"
+)
 
 type Row struct {
 	Domain       string       `json:"domain"`
