@@ -24,7 +24,7 @@ type Model struct {
 	AccountId    string       `gorm:"not null" json:"account_id"`
 	Relationship Relationship `gorm:"not null;type:relationship" json:"relationship"`
 	Authority    string       `json:"authority"`
-	CreatedAt    time.Time    `gorm:"not null" json:"created_at"`
+	CreatedAt    time.Time    `gorm:"not null;type:timestamptz" json:"created_at"`
 }
 
 func (Model) TableName() string {
