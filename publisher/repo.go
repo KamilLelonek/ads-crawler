@@ -51,14 +51,14 @@ func (repo *Repo) Migrate() {
 	repo.DB().AutoMigrate(&Model{})
 }
 
-func (repo *Repo) ReadByDomain(domain string) (*[]Model, error) {
+func (repo *Repo) ReadByWebsite(website string) (*[]Model, error) {
 	models := new([]Model)
-	err := repo.DB().Find(&models, Model{Domain: domain}).Error
+	err := repo.DB().Find(&models, Model{Website: website}).Error
 
 	return models, err
 }
 
-func (repo *Repo) WriteWithDomain(website string, row Row) error {
+func (repo *Repo) WriteWithWebsite(website string, row Row) error {
 	model := &Model{
 		Website:      website,
 		Domain:       row.Domain,
