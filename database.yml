@@ -8,11 +8,11 @@ default: &default
 
 development:
   <<: *default
-  database: crawler_development
+  database: crawler
 
 test:
   <<: *default
-  database: crawler_test
+  database: crawler
 
 production:
   url: {{envOr "DATABASE_URL" "postgres://postgres:postgres@127.0.0.1:5432/crawler_production?sslmode=disable"}}

@@ -47,6 +47,23 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: publishers; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.publishers (
+    id uuid DEFAULT public.gen_random_uuid() NOT NULL,
+    website text NOT NULL,
+    domain text NOT NULL,
+    account_id text NOT NULL,
+    relationship public.relationship NOT NULL,
+    authority text,
+    created_at timestamp with time zone NOT NULL
+);
+
+
+ALTER TABLE public.publishers OWNER TO postgres;
+
+--
 -- Name: schema_migration; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -56,6 +73,14 @@ CREATE TABLE public.schema_migration (
 
 
 ALTER TABLE public.schema_migration OWNER TO postgres;
+
+--
+-- Name: publishers publishers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.publishers
+    ADD CONSTRAINT publishers_pkey PRIMARY KEY (id);
+
 
 --
 -- Name: schema_migration_version_idx; Type: INDEX; Schema: public; Owner: postgres
