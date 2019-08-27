@@ -14,7 +14,7 @@ const (
 	port     = 5432
 	user     = "postgres"
 	password = "postgres"
-	dbname   = "crawler_development"
+	dbname   = "crawler"
 )
 
 var psqlInfo = fmt.Sprintf(
