@@ -7,6 +7,7 @@ sudo: false
 services:
   - postgresql
 before_script:
+  - go install github.com/gobuffalo/pop/soda
   - soda create
   - soda migrate
 script: go test -v ./...
