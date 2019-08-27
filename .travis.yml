@@ -6,8 +6,6 @@ env:
 sudo: false
 services:
   - postgresql
-before_install:
-  - go install github.com/gobuffalo/pop/soda
 before_script:
   - soda create
   - soda migrate
