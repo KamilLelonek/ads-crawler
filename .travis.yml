@@ -3,10 +3,14 @@ go:
   - 1.12.x
 env:
   - GO111MODULE=on
+  - GO_ENV=test
 sudo: false
 services:
   - postgresql
+go_import_path: crawler
 before_script:
+  - go get github.com/gobuffalo/pop/soda
+  - go install github.com/gobuffalo/pop/soda
   - soda create
   - soda migrate
 script: go test -v ./...
